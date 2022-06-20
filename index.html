@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <link href="css/style.css" rel="stylesheet">
+  <title>Todoolean</title>
+</head>
+
+<body>
+  <!--header-->
+  <header class="header">
+    <div class="header__logo">
+      Todoolean
+    </div>
+    <div class="header__search">
+      <i class="fas fa-search"></i>
+      <input type="text" class="search">
+    </div>
+    <div class="header__menu">
+      <i class="header__item fas fa-plus"></i>
+      <div class="header__item ico-user"><span>L</span></div>
+    </div>
+  </header>
+  <!--/header-->
+
+  <!--main-->
+  <main class="main">
+    <h1>Oggi <span class="date">Lunedì 20 giugno 2022</span></h1>
+    <div class="add-todo">
+      <a href="#" class="btn"><i class="fas fa-plus"></i> Add Todo</a>
+    </div>
+    <div class="content">
+      <ul class="todos">
+        <li class="todos__item">
+          <div class="text"><span class="button--done"><i class="far fa-check-circle"></i></span> <span
+              class="todo__text">Portare Julie a spasso</span></div>
+          <div class="todo__item__menu">
+            <i class="other-items fas fa-ellipsis-h"></i>
+            <div class="todo__item__menu__dropdown">
+              <ul class="menu">
+                <li class="button-todo--modify"><i class="fas fa-pencil-alt"></i> Modifica</li>
+                <li class="button-todo--delete"><i class="far fa-trash-alt"></i> Elimina</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="todos__item">
+          <div class="text"><span class="button--done"><i class="far fa-check-circle"></i></span> <span
+              class="todo__text">Dare la pappa ad Arturo</span></div>
+          <div class="todo__item__menu">
+            <i class="other-items fas fa-ellipsis-h"></i>
+            <div class="todo__item__menu__dropdown">
+              <ul class="menu">
+                <li class="button-todo--modify"><i class="fas fa-pencil-alt"></i> Modifica</li>
+                <li class="button-todo--delete"><i class="far fa-trash-alt"></i> Elimina</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="todos__item">
+          <div class="text"><span class="button--done"><i class="far fa-check-circle"></i></span> <span
+              class="todo__text">Fare le coccole a Gea</span></div>
+          <div class="todo__item__menu">
+            <i class="other-items fas fa-ellipsis-h"></i>
+            <div class="todo__item__menu__dropdown">
+              <ul class="menu">
+                <li class="button-todo--modify"><i class="fas fa-pencil-alt"></i> Modifica</li>
+                <li class="button-todo--delete"><i class="far fa-trash-alt"></i> Elimina</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </main>
+  <!--/main-->
+
+  <!--  Template-->
+  <div class="template template--text">
+    <input type="text" class="todo__text__input">
+  </div>
+
+  <div class="template template--todo">
+    <li class="todos__item active">
+      <div class="text"><span class="button--done"><i class="far fa-check-circle"></i></span> <span class="todo__text">
+        </span></div>
+      <div class="todo__item__menu">
+        <i class="other-items fas fa-ellipsis-h"></i>
+        <div class="todo__item__menu__dropdown">
+          <ul class="menu">
+            <li class="button-todo--modify"><i class="fas fa-pencil-alt"></i> Modifica</li>
+            <li class="button-todo--delete"><i class="far fa-trash-alt"></i> Elimina</li>
+          </ul>
+        </div>
+      </div>
+    </li>
+  </div>
+  <!--  Template-->
+</body>
+
+</html>
