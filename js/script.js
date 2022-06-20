@@ -27,7 +27,8 @@ function createNewTodo() {
 // [2]
 function createInput(todo) {
   // Salvo il testo dell'input in una variabile
-  const textTodo = $(todo).children('.todo__text').text().trim();
+  let textTodo = $(todo).children('.todo__text').text().trim();
+  console.log(textTodo);
   // Clono il template
   const input = $('.template--text').children().clone();
 
@@ -44,9 +45,18 @@ function createInput(todo) {
 
       if (textTodo.length > 0) {
         input.parent('.todo__text').html(textTodo);
+        console.log(textTodo);
       } else {
-        input.parents('.todos--item').remove();
+        input.parents('.todos__item').remove();
       }
     })
-    .keyup();
+    .keyup(function (event) {
+      const input = $(this);
+
+      if (event.keyCode === 27 && textTodo.length > 0) {
+        input.parent('.todo__text').html(textTodo);
+      } else if (event.keyCode === 27 && textTodo.length === 0) {
+        input.parents('.todos__item').remove();
+      }
+    });
 }
