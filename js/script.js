@@ -104,4 +104,25 @@ function deleteTodo() {
 }
 
 // Dropdown function
-function dropdownMenu() { }
+function dropdownMenu() {
+  $(document).on('click', '.other-items', function () {
+    // Risalgo al parent col traversing per gestire la classe active
+    $(this).parent('.todo__item__menu').toggleClass('active');
+    // Uso next perchè l'elemento si trova dopo la classe '.other-items'
+    $(this).next('.todo__item__menu__dropdown').toggleClass('active');
+
+    // Se siamo nell'area del dropdownMenu 
+    $(document).on('mouseup', function (event) {
+      const isOnDropDown =
+        $(event - target).parents('.todo__item__menu').hasClass('active')
+        ||
+        $(event - target).parents('.todo__item__menu__dropdown').hasClass('active');
+
+      // A questo punto controllo, e se non è in mouseup nel dropdown
+      if (!isOnDropDown) {
+        $('.todo__item__menu').removeClass('active');
+        $('.todo__item__menu__dropdown').removeClass('active')
+      }
+    });
+  });
+}
