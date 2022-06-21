@@ -13,6 +13,8 @@ $(document).ready(function () {
   deleteTodo();
   // [5]
   doneTodo();
+  // [6]
+  updateTodo();
 });
 
 // * --- CRUD ---
@@ -122,6 +124,30 @@ function doneTodo() {
       parent.addClass('todo--done');
       todoCOntainer.append(parent);
     }
+  });
+}
+
+// [6]
+function updateTodo() {
+  // Uso il doppio click per modificare il testo
+  $(document).on('dblclick', '.todos__item .text', function () {
+    const todoText = $(this);
+    // Se non è stato checkato come done
+    if (!todoText.parents('.todos__item').hasClass('todo--done')) {
+      createInput(todoText);
+    }
+  });
+
+  // Interagisco col tasto modifica
+  $(document).on('click', '.button-todo--modify', function () {
+    // Uso il traversing per risalire al parent e poi rientro al children
+    const todoText = $(this).parents('.todos__item').children('.text');
+    createInput(todoText);
+
+    // Tolgo l'active dal dropdown menu
+    $(this).parents('.todo__item__menu').removeClass('active');
+    $(this).parents('.todo__item__menu__dropdown').removeClass('active');
+
   });
 }
 
