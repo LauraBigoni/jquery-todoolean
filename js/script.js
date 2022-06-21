@@ -174,6 +174,22 @@ function searchTodo() {
   searchBar.children('.search').on('keyup', function () {
     const text = $(this).val().toLowerCase();
     const todos = $('.todos .todos__item');
+
+    // Giro nei todo
+    todos.each(function (index) {
+      const textTodo = $(this).find('.todo__text');
+      const textTodoVal = textTodo.text();
+      const pos = textTodoVal.toLowerCase().indexOf(text);
+
+      // Cerco il testo
+      if (pos !== -1) {
+        // tolgo la classe hidden per mostrare i risultati
+        $(this).removeClass('hidden');
+      } else {
+        // nascondo gli elementi che non corrispondono alla ricerca
+        $(this).addClass('hidden');
+      }
+    });
   });
 }
 
