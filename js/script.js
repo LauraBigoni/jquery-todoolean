@@ -168,7 +168,13 @@ function searchTodo() {
       // Rimuovo la classe active al focusout
       $(this).removeClass('active');
     }
-  })
+  });
+
+  // Event 'keyup'
+  searchBar.children('.search').on('keyup', function () {
+    const text = $(this).val().toLowerCase();
+    const todos = $('.todos .todos__item');
+  });
 }
 
 // Dropdown function

@@ -90,6 +90,10 @@ p {
   color: black;
 }
 
+.header__search.active input[type="text"] {
+  color: black;
+}
+
 .header__search i {
   margin: 0 10px;
 }
