@@ -4,12 +4,15 @@ $(document).ready(function () {
   // Gestisco i dropdown menu
   dropdownMenu();
 
-  // CRUD [1] 
+  // CRUD 
+  // [1] + [2]
   createTodo();
   // [3]
   saveTodo();
   // [4]
   deleteTodo();
+  // [5]
+  doneTodo();
 });
 
 // * --- CRUD ---
@@ -66,7 +69,8 @@ function createInput(todo) {
     .keyup(function (event) {
       // Il this si riferisce all'evento keyup
       const input = $(this);
-      console.log(this);
+      // console.log(this);
+
       // Controllo la lunghezza e il codice del tasto premuto
       // Se è 27 = ESC ed è > 0
       if (event.keyCode === 27 && textTodo.length > 0) {
@@ -100,6 +104,24 @@ function deleteTodo() {
   $(document).on('click', '.button-todo--delete', function () {
     // This si riferisce albutton-todo--delete
     $(this).parents('.todos__item').remove();
+  });
+}
+
+// [5]
+function doneTodo() {
+  $(document).on('click', '.button--done', function () {
+    // Creo delle variabili di appoggio
+    const parent = $(this).parents('.todos__item');
+    const todoCOntainer = $(this).parents('.todos');
+
+    // Verifico la condizione per mettere o togliere '.todo--done'
+    if (parent.hasClass('todo--done')) {
+      parent.removeClass('todo--done');
+      todoCOntainer.prepend(parent);
+    } else {
+      parent.addClass('todo--done');
+      todoCOntainer.append(parent);
+    }
   });
 }
 
