@@ -1,15 +1,20 @@
 $(document).ready(function () {
   console.log("jquery ready");
 
-  // Eseguo la funzione [1] createNewTodo();
-  createNewTodo();
+  // Gestisco i dropdown menu
+  dropdownMenu();
+
+  // CRUD [1] 
+  createTodo();
   // [3]
-  saveNewTodo();
+  saveTodo();
+  // [4]
+  deleteTodo();
 });
 
 // * --- CRUD ---
 // [1]
-function createNewTodo() {
+function createTodo() {
   $('.add-todo .btn').click(function (event) {
     // Non faccio ricaricare la pagina
     event.preventDefault();
@@ -74,7 +79,7 @@ function createInput(todo) {
 }
 
 // [3]
-function saveNewTodo() {
+function saveTodo() {
   $(document).on('keypress', '.todo__text__input', function (event) {
 
     if (event.keyCode === 13) {
@@ -88,3 +93,13 @@ function saveNewTodo() {
     }
   });
 }
+
+// [4]
+function deleteTodo() {
+  $(document).on('click', '.button-todo--delete', function () {
+    $(this).parents('.todos__item').remove();
+  });
+}
+
+// Dropdown function
+function dropdownMenu() { }
