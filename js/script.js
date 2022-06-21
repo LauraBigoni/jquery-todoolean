@@ -81,10 +81,11 @@ function createInput(todo) {
 // [3]
 function saveTodo() {
   $(document).on('keypress', '.todo__text__input', function (event) {
-
+    // Code 13 = ENTER
     if (event.keyCode === 13) {
       const input = $(this);
 
+      // Setto il val degli input
       if (input.val().trim().length > 0) {
         input.parent('.todo__text').html(input.val());
       } else {
@@ -97,6 +98,7 @@ function saveTodo() {
 // [4]
 function deleteTodo() {
   $(document).on('click', '.button-todo--delete', function () {
+    // This si riferisce albutton-todo--delete
     $(this).parents('.todos__item').remove();
   });
 }
