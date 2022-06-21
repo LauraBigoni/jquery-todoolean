@@ -185,6 +185,17 @@ function searchTodo() {
       if (pos !== -1) {
         // tolgo la classe hidden per mostrare i risultati
         $(this).removeClass('hidden');
+
+        // Uso slice per trovare le substringhe da evidenziare
+        const before = textTodoVal.slice(0, pos);
+        const after = textTodoVal.slice(pos + text.length);
+        const textToHighlight = textTodoVal.slice(pos, pos + text.length);
+
+        // Ricostruisco la stringa
+        const textHighlighted = `${before}<span class="highlights">${textToHighlight}</span>${after}`;
+
+        // Evidenzio il testo
+        textTodo.html(textHighlighted);
       } else {
         // nascondo gli elementi che non corrispondono alla ricerca
         $(this).addClass('hidden');

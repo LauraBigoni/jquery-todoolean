@@ -158,7 +158,7 @@ p {
 }
 
 .todos__item.todo--done .button--done {
-  color: green;
+  color: rgb(255, 23, 120);
 }
 
 .todos__item .button--done {
@@ -168,7 +168,7 @@ p {
 }
 
 .todos__item .button--done:hover {
-  color: green;
+  color: rgb(255, 23, 120);
 }
 
 .todos__item:hover .todo__item__menu,
