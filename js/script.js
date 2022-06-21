@@ -15,6 +15,8 @@ $(document).ready(function () {
   doneTodo();
   // [6]
   updateTodo();
+  // [7] 
+  searchTodo();
 });
 
 // * --- CRUD ---
@@ -149,6 +151,24 @@ function updateTodo() {
     $(this).parents('.todo__item__menu__dropdown').removeClass('active');
 
   });
+}
+
+// [7]
+function searchTodo() {
+  // Prendo la searchBar
+  const searchBar = $('.header__search');
+
+  // Ascolto gli eventi sulla searchbar...
+  searchBar.on({
+    'click': function () {
+      // Aggiungo la classe active alla searchBar e la metto in focus
+      $(this).addClass('active').children('.search').focus();
+    },
+    'focusout': function () {
+      // Rimuovo la classe active al focusout
+      $(this).removeClass('active');
+    }
+  })
 }
 
 // Dropdown function
