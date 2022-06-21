@@ -1,7 +1,10 @@
 $(document).ready(function () {
   console.log("jquery ready");
-  // Eseguo la funzione createNewTodo();
+
+  // Eseguo la funzione [1] createNewTodo();
   createNewTodo();
+  // [3]
+  saveNewTodo();
 });
 
 // * --- CRUD ---
@@ -43,20 +46,45 @@ function createInput(todo) {
       // Salvo il val dell'input in una variabile e uso il THIS
       const input = $(this);
 
+      // Controllo la lunghezza del testo
       if (textTodo.length > 0) {
+
+        // Se è maggiore di 0
         input.parent('.todo__text').html(textTodo);
         console.log(textTodo);
       } else {
+
+        // Altrimenti...
         input.parents('.todos__item').remove();
       }
     })
     .keyup(function (event) {
+      // Il this si riferisce all'evento keyup
       const input = $(this);
-
+      console.log(this);
+      // Controllo la lunghezza e il codice del tasto premuto
+      // Se è 27 = ESC ed è > 0
       if (event.keyCode === 27 && textTodo.length > 0) {
         input.parent('.todo__text').html(textTodo);
+        // Se non ha contenuto allora...
       } else if (event.keyCode === 27 && textTodo.length === 0) {
         input.parents('.todos__item').remove();
       }
     });
+}
+
+// [3]
+function saveNewTodo() {
+  $(document).on('keypress', '.todo__text__input', function (event) {
+
+    if (event.keyCode === 13) {
+      const input = $(this);
+
+      if (input.val().trim().length > 0) {
+        input.parent('.todo__text').html(input.val());
+      } else {
+        input.parents('.todos__item').remove();
+      }
+    }
+  });
 }
